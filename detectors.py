@@ -1,5 +1,4 @@
-from tree_sitter._binding import Node
-
+from tree_sitter import Node
 from linter_runner import LinterRunner
 from print_message import pretty_print_warn
 
@@ -33,4 +32,18 @@ def call_inside_as_contract(runner: LinterRunner, node: Node):
             if b"." in child.text:
                 return
         pretty_print_warn(runner, parent, node, "Ojo con usar as-contract con algo no constante")
+        runner.restore_after()
+
+
+def unwrap_panic_usage(runner: LinterRunner, node: Node):
+    if node.text == b"unwrap-panic":
+        pretty_print_warn(runner, node, node, "Preferible usar unwrap!")
+
+
+def assert_block_height(runner: LinterRunner, node: Node):
+    if node.text == b"block-height":
+        parent = runner.a_parent_contains("(asserts!")
+        if parent is None:
+            return
+        pretty_print_warn(runner, parent, node, "Ojo con chequear con block-height en un assert")
         runner.restore_after()

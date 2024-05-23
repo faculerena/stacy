@@ -13,9 +13,9 @@ def pretty_print_warn(runner: LinterRunner, parent: Node, specific_node: Node, m
 
     arrows = "^" * (specific_node.end_point.column - specific_node.start_point.column)
 
-    spaces = " " * (specific_node.start_point.column - num_size + 1)
+    spaces = " " * (specific_node.start_point.column - num_size + 3)
 
-    print(line_number, line)
+    print(line_number, "|", line)
     print(spaces, arrows)
     print(spaces, msg)
     print()
