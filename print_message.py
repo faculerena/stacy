@@ -9,13 +9,13 @@ def pretty_print_warn(runner: LinterRunner, parent: Node, specific_node: Node, m
     line_number = parent.start_point.row + 1
     num_size = int(math.log10(line_number))
 
+    line = runner.source.split('\n')[line_number - 1]
+
     arrows = "^" * (specific_node.end_point.column - specific_node.start_point.column)
 
-    spaces = " " * (specific_node.start_point.column - num_size + 2)
+    spaces = " " * (specific_node.start_point.column - num_size + 1)
 
-    prev_spaces = " " * (specific_node.start_point.column - num_size)
-
-    print(line_number, prev_spaces, parent.text.decode("utf-8"))
+    print(line_number, line)
     print(spaces, arrows)
     print(spaces, msg)
     print()
