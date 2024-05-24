@@ -387,6 +387,23 @@
       }
     },
     "function_definition": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "private_function"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "read_only_function"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "public_function"
+        }
+      ]
+    },
+    "private_function": {
       "type": "SEQ",
       "members": [
         {
@@ -397,21 +414,86 @@
           "type": "SEQ",
           "members": [
             {
+              "type": "STRING",
+              "value": "define-private"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "function_signature"
+            },
+            {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "define-read-only"
+                  "type": "SYMBOL",
+                  "name": "common_statement"
                 },
                 {
-                  "type": "STRING",
-                  "value": "define-private"
-                },
-                {
-                  "type": "STRING",
-                  "value": "define-public"
+                  "type": "SYMBOL",
+                  "name": "let_statement"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "read_only_function": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "define-read-only"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "function_signature"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "common_statement"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "let_statement"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "public_function": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "define-public"
             },
             {
               "type": "SYMBOL",

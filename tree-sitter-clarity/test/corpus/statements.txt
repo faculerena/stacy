@@ -1,5 +1,5 @@
 =====================================
-Function definition
+Public function definition
 =====================================
 
 (define-public (hello-world (name (string-ascii 32)))
@@ -17,6 +17,7 @@ Function definition
 
 (source
       (function_definition
+        (public_function
         (function_signature
           (identifier)
           (function_parameter
@@ -37,7 +38,49 @@ Function definition
             (identifier)
             (global))
           (response_lit
-            (int_lit)))))
+            (int_lit))))))
+
+=====================================
+Private function definition
+=====================================
+
+(define-private (hello-world (name (string-ascii 32)))
+  (let
+    (
+      (foo (+ 3 1))
+      (bar u5)
+      (user tx-sender)
+    )
+    (ok 1)
+  )
+)
+
+---
+
+(source
+      (function_definition
+        (private_function
+        (function_signature
+          (identifier)
+          (function_parameter
+            (identifier)
+            (type_name
+              (ascii_string_type))))
+        (let_statement
+          (let_variable_definition
+            (identifier)
+            (common_statement
+              (arithmetic_function)
+              (int_lit)
+              (int_lit)))
+          (let_variable_definition
+            (identifier)
+            (uint_lit))
+          (let_variable_definition
+            (identifier)
+            (global))
+          (response_lit
+            (int_lit))))))
 
 =====================================
 Trait definition
