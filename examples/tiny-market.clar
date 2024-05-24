@@ -49,7 +49,7 @@
 
 (define-public (set-whitelisted (asset-contract principal) (whitelisted bool))
 	(begin
-		(asserts! (is-eq contract-owner tx-sender) err-unauthorised)
+        (asserts! (is-eq contract-owner tx-sender) err-unauthorised)
 		(ok (map-set whitelisted-asset-contracts asset-contract whitelisted))
 	)
 )

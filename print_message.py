@@ -4,6 +4,7 @@ from tree_sitter import Node
 
 from visitor import Visitor
 
+COLORS = False
 
 class TerminalColors:
     HEADER = '\033[95m'
@@ -21,10 +22,13 @@ def pretty_print_warn(visitor: Visitor, parent: Node, specific_node: Node, msg: 
     line_number = parent.start_point.row + 1
     num_size_spaces = " " * (int(math.log10(line_number)) + 2)
     contract_code = visitor.source.split('\n')[line_number - 1]
-    arrows = "^" * (specific_node.end_point.column - specific_node.start_point.column)
-    spaces = " " * (specific_node.start_point.column + 1)
+    start_tabs = contract_code.count('\t') + 1
+    contract_code = contract_code.replace('\t', '    ')
 
-    print(f"{TerminalColors.HEADER}Warning: {TerminalColors.ENDC}{msg}")
+    arrows = "^" * (specific_node.end_point.column - specific_node.start_point.column)
+    spaces = " " * ((specific_node.start_point.column * start_tabs) + 1)
+
+    print(f"Warning: {msg}")
     print(f"{num_size_spaces}|")
     print(f"{line_number} | {contract_code}")
     print(f"{num_size_spaces}|{spaces}{arrows}")

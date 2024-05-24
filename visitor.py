@@ -1,5 +1,3 @@
-import math
-
 import tree_sitter_clarity
 from tree_sitter import Language, TreeCursor, Parser, Tree, Node
 
