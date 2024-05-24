@@ -21,7 +21,8 @@ class TxSenderDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con usar tx-sender adentro de un assert"
+                        "Ojo con usar tx-sender adentro de un assert",
+                        None
                     )
 
 
@@ -41,7 +42,8 @@ class DivideBeforeMultiplyDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con dividir antes de multiplicar"
+                        "Ojo con dividir antes de multiplicar",
+                        None
                     )
 
 
@@ -55,7 +57,8 @@ class UnwrapPanicDetector(Visitor):
                 self,
                 node.parent,
                 node,
-                "Preferible usar unwrap!"
+                "Preferible usar unwrap!",
+                None
             )
 
 
@@ -76,7 +79,8 @@ class AssertBlockHeightDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con chequear con block-height en un assert"
+                        "Ojo con chequear con block-height en un assert",
+                        None
                     )
 
 
@@ -103,7 +107,8 @@ class CallInsideAsContract(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con usar as-contract con algo no constante"
+                        "Ojo con usar as-contract con algo no constante",
+                        None
                     )
                     self.call = False
                     self.principal_literal = False

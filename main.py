@@ -2,7 +2,7 @@ import sys
 
 from detectors import TxSenderDetector, DivideBeforeMultiplyDetector, UnwrapPanicDetector, \
     AssertBlockHeightDetector, CallInsideAsContract
-from visitor import LinterRunner
+from visitor import LinterRunner, Visitor
 
 
 def main():
@@ -16,21 +16,17 @@ def main():
 
     runner: LinterRunner = LinterRunner(source)
 
-    lints = [
+    lints: [Visitor] = [
         TxSenderDetector(),
         DivideBeforeMultiplyDetector(),
         UnwrapPanicDetector(),
         AssertBlockHeightDetector(),
         CallInsideAsContract()
     ]
-    for lint in lints:
-        lint.add_source(source)
 
     runner.add_lints(lints)
 
     runner.run()
-
-
 
 
 if __name__ == '__main__':

@@ -81,6 +81,8 @@ class LinterRunner:
         return self
 
     def add_lints(self, lints):
+        for lint in lints:
+            lint.add_source(self.source)
         self.lints.extend(lints)
 
     def run(self):
@@ -89,6 +91,8 @@ class LinterRunner:
             if v is None:
                 break
             self.run_lints(v)
+
+
 """
             l = len(v.grammar_name)
             spaces = " " * (20 - l)
