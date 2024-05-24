@@ -1,6 +1,6 @@
 import sys
 
-from new_detectors import TxSenderDetector, DivideBeforeMultiplyDetector, UnwrapPanicDetector, \
+from detectors import TxSenderDetector, DivideBeforeMultiplyDetector, UnwrapPanicDetector, \
     AssertBlockHeightDetector, CallInsideAsContract
 from visitor import LinterRunner
 
@@ -23,6 +23,8 @@ def main():
         AssertBlockHeightDetector(),
         CallInsideAsContract()
     ]
+    for lint in lints:
+        lint.add_source(source)
 
     runner.add_lints(lints)
 

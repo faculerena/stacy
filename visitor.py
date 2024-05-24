@@ -1,3 +1,5 @@
+import math
+
 import tree_sitter_clarity
 from tree_sitter import Language, TreeCursor, Parser, Tree, Node
 
@@ -5,6 +7,14 @@ CLARITY = Language(tree_sitter_clarity.language())
 
 
 class Visitor:
+    source: str | None
+
+    def __init__(self):
+        self.source = None
+
+    def add_source(self, source: str):
+        self.source = source
+
     def visit_node(self, node: Node):
         pass
 
@@ -47,11 +57,6 @@ class NodeIterator:
         return self.cursor.node
 
 
-class DetectorA(Visitor):
-    def visit_node(self, node: Node):
-        print(node.id)
-
-
 class LinterRunner:
     source: str
     tree: Tree
@@ -83,6 +88,4 @@ class LinterRunner:
             v = self.iterator.next()
             if v is None:
                 break
-
             self.run_lints(v)
-
