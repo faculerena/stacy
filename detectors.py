@@ -5,6 +5,7 @@ from visitor import Visitor, NodeIterator
 
 
 class TxSenderDetector(Visitor):
+    MSG = "Use of tx-sender inside an assert"
 
     def __init__(self):
         super().__init__()
@@ -21,12 +22,14 @@ class TxSenderDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con usar tx-sender adentro de un assert",
+                        self.MSG,
                         None
                     )
 
 
 class DivideBeforeMultiplyDetector(Visitor):
+    MSG = "Use of divide inside a multiplication. This could result in a precision loss"
+
     def __init__(self):
         super().__init__()
 
@@ -42,12 +45,14 @@ class DivideBeforeMultiplyDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con dividir antes de multiplicar",
+                        self.MSG,
                         None
                     )
 
 
 class UnwrapPanicDetector(Visitor):
+    MSG = "Use of unwrap-panic. Use unwrap! and handle the error."
+
     def __init__(self):
         super().__init__()
 
@@ -57,12 +62,13 @@ class UnwrapPanicDetector(Visitor):
                 self,
                 node.parent,
                 node,
-                "Preferible usar unwrap!",
+                self.MSG,
                 None
             )
 
 
 class AssertBlockHeightDetector(Visitor):
+    MSG = "Use of block-height inside a assert"
 
     def __init__(self):
         super().__init__()
@@ -79,12 +85,13 @@ class AssertBlockHeightDetector(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con chequear con block-height en un assert",
+                        self.MSG,
                         None
                     )
 
 
 class CallInsideAsContract(Visitor):
+    MSG = "Use of call-contract? inside an as-contract context."
 
     def __init__(self):
         super().__init__()
@@ -107,7 +114,7 @@ class CallInsideAsContract(Visitor):
                         self,
                         node.parent,
                         node,
-                        "Ojo con usar as-contract con algo no constante",
+                        self.MSG,
                         None
                     )
                     self.call = False

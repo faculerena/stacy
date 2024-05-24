@@ -25,7 +25,6 @@ def main():
     ]
 
     runner.add_lints(lints)
-
     runner.run()
 
 

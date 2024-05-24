@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/print_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/visitor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +111,7 @@
       <workItem from="1716468129628" duration="1537000" />
       <workItem from="1716470902780" duration="9772000" />
       <workItem from="1716554066323" duration="19779000" />
+      <workItem from="1716574924869" duration="1056000" />
     </task>
     <servers />
   </component>
