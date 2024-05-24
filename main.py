@@ -1,8 +1,8 @@
 import sys
 
-from detectors import tx_sender_check, divide_before_multiply, call_inside_as_contract, unwrap_panic_usage, \
-    assert_block_height
-from linter_runner import LinterRunner
+from new_detectors import TxSenderDetector, DivideBeforeMultiplyDetector, UnwrapPanicDetector, \
+    AssertBlockHeightDetector, CallInsideAsContract
+from visitor import LinterRunner
 
 
 def main():
@@ -14,21 +14,27 @@ def main():
     with open(path, 'r') as file:
         source = file.read()
 
-    parser: LinterRunner = LinterRunner(source)
+    runner: LinterRunner = LinterRunner(source)
 
-    parser.add_lint(tx_sender_check)
-    parser.add_lint(divide_before_multiply)
-    parser.add_lint(call_inside_as_contract)
-    parser.add_lint(unwrap_panic_usage)
-    parser.add_lint(assert_block_height)
+    lints = [
+        TxSenderDetector(),
+        DivideBeforeMultiplyDetector(),
+        UnwrapPanicDetector(),
+        AssertBlockHeightDetector(),
+        CallInsideAsContract()
+    ]
 
+    runner.add_lints(lints)
 
-    while True:
-        node = parser.next()
-        if node is None:
-            break
-        parser.run_lints(node)
+    runner.run()
 
+"""
+        l = len(v.grammar_name)
+        spaces = " " * (20 - l)
+        node_depth = runner.iterator.cursor.depth
+        dep = ("-" * node_depth) + ">"
+        print(node_depth, dep, v.grammar_name, spaces, v.text)
+"""
 
 if __name__ == '__main__':
     main()

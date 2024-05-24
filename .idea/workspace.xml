@@ -7,9 +7,8 @@
     <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/detectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectors.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example.clar" beforeDir="false" afterPath="$PROJECT_DIR$/examples/example.clar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linter_runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/linter_runner.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/print_message.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +110,7 @@
       <workItem from="1716467607276" duration="518000" />
       <workItem from="1716468129628" duration="1537000" />
       <workItem from="1716470902780" duration="9772000" />
+      <workItem from="1716554066323" duration="16641000" />
     </task>
     <servers />
   </component>
