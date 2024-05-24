@@ -57,6 +57,8 @@ class UnwrapPanicDetector(Visitor):
                 node,
                 "Preferible usar unwrap!"
             )
+
+
 class AssertBlockHeightDetector(Visitor):
 
     def __init__(self):
@@ -76,6 +78,7 @@ class AssertBlockHeightDetector(Visitor):
                         node,
                         "Ojo con chequear con block-height en un assert"
                     )
+
 
 class CallInsideAsContract(Visitor):
 
@@ -104,4 +107,3 @@ class CallInsideAsContract(Visitor):
                     )
                     self.call = False
                     self.principal_literal = False
-

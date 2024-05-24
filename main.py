@@ -30,13 +30,8 @@ def main():
 
     runner.run()
 
-"""
-        l = len(v.grammar_name)
-        spaces = " " * (20 - l)
-        node_depth = runner.iterator.cursor.depth
-        dep = ("-" * node_depth) + ">"
-        print(node_depth, dep, v.grammar_name, spaces, v.text)
-"""
+
+
 
 if __name__ == '__main__':
     main()
