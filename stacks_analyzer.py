@@ -28,11 +28,11 @@ def lint_file(path):
     runner: LinterRunner = LinterRunner(source)
 
     lints: [Visitor] = [
-#        TxSenderDetector(),
-#        DivideBeforeMultiplyDetector(),
-#        UnwrapPanicDetector(),
-#        AssertBlockHeightDetector(),
-#        CallInsideAsContract(),
+        TxSenderDetector(),
+        DivideBeforeMultiplyDetector(),
+        UnwrapPanicDetector(),
+        AssertBlockHeightDetector(),
+        CallInsideAsContract(),
         ReadOnlyNotUsed()
     ]
     runner.add_lints(lints)
