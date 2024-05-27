@@ -30,9 +30,9 @@ def pretty_print_warn(visitor: Visitor, parent: Node, specific_node: Node, msg: 
     spaces = " " * ((specific_node.start_point.column * start_tabs) + 1)
 
     print(f"Warning: {msg}")
-    print(f"{num_size_spaces}|")
-    print(f"{line_number} | {contract_code}")
-    print(f"{num_size_spaces}|{spaces}{arrows}")
+    print(f" {num_size_spaces}|")
+    print(f" {line_number} | {contract_code}")
+    print(f" {num_size_spaces}|{spaces}{arrows}")
     if help_msg is not None:
-        print(f"{num_size_spaces}|{spaces}{help_msg}")
+        print(f" {num_size_spaces}|{spaces}{help_msg}")
     print()
