@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/detectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/detectors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/multisig_vault.clar" beforeDir="false" afterPath="$PROJECT_DIR$/examples/multisig_vault.clar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/print_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/print_message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stacks_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/stacks_analyzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/visitor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,16 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;python&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/flerena/coinfabrik/static-analyzer-clarity/python_try&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "python",
+    "last_opened_file_path": "/home/flerena/coinfabrik/static-analyzer-clarity/python_try",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -111,6 +116,7 @@
       <workItem from="1716554066323" duration="19779000" />
       <workItem from="1716574924869" duration="6510000" />
       <workItem from="1716582620110" duration="743000" />
+      <workItem from="1716815972893" duration="9963000" />
     </task>
     <servers />
   </component>

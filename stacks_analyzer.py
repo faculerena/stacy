@@ -2,7 +2,7 @@ import os
 import sys
 
 from detectors import TxSenderDetector, DivideBeforeMultiplyDetector, UnwrapPanicDetector, \
-    AssertBlockHeightDetector, CallInsideAsContract
+    AssertBlockHeightDetector, CallInsideAsContract, ReadOnlyNotUsed
 from visitor import LinterRunner, Visitor
 
 
@@ -28,16 +28,17 @@ def lint_file(path):
     runner: LinterRunner = LinterRunner(source)
 
     lints: [Visitor] = [
-        TxSenderDetector(),
-        DivideBeforeMultiplyDetector(),
-        UnwrapPanicDetector(),
-        AssertBlockHeightDetector(),
-        CallInsideAsContract()
+#        TxSenderDetector(),
+#        DivideBeforeMultiplyDetector(),
+#        UnwrapPanicDetector(),
+#        AssertBlockHeightDetector(),
+#        CallInsideAsContract(),
+        ReadOnlyNotUsed()
     ]
-
     runner.add_lints(lints)
     runner.run()
-    print()
+    runner.run()
+    runner.run()
 
 
 if __name__ == '__main__':

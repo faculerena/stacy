@@ -1,3 +1,5 @@
+import collections.abc
+
 from tree_sitter import Node
 
 from print_message import pretty_print_warn
@@ -10,7 +12,9 @@ class TxSenderDetector(Visitor):
     def __init__(self):
         super().__init__()
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i):
+        if i > 1:
+            return
         if str(node.text, "utf8") == "asserts!":
             descendants = NodeIterator(node.parent)
             while True:
@@ -33,7 +37,9 @@ class DivideBeforeMultiplyDetector(Visitor):
     def __init__(self):
         super().__init__()
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i):
+        if i > 1:
+            return
         if node.grammar_name == "arithmetic_function" and str(node.text, "utf8") == "*":
             descendants = NodeIterator(node.parent)
             while True:
@@ -56,7 +62,9 @@ class UnwrapPanicDetector(Visitor):
     def __init__(self):
         super().__init__()
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i):
+        if i > 1:
+            return
         if str(node.text, "utf8") == "unwrap-panic":
             pretty_print_warn(
                 self,
@@ -73,7 +81,9 @@ class AssertBlockHeightDetector(Visitor):
     def __init__(self):
         super().__init__()
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i):
+        if i > 1:
+            return
         if str(node.text, "utf8") == "asserts!":
             descendants = NodeIterator(node.parent)
             while True:
@@ -98,7 +108,9 @@ class CallInsideAsContract(Visitor):
         self.call = False
         self.principal_literal = False
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i):
+        if i > 1:
+            return
         if str(node.text, "utf8") == "as-contract":
             descendants = NodeIterator(node.parent)
             while True:
@@ -119,3 +131,47 @@ class CallInsideAsContract(Visitor):
                     )
                     self.call = False
                     self.principal_literal = False
+
+
+class ReadOnlyNotUsed(Visitor):
+    MSG = "This private function is not used."
+    read_only_names: [Node] = []
+
+    def __init__(self):
+        super().__init__()
+        self.read_only_names: [Node] = []
+
+    def visit_node(self, node: Node, run_number: int):
+        if run_number == 1 and node.grammar_name == "private_function":
+            self.read_only_names.append(node)
+            return
+
+        # this can be improved with a better grammar (if not, stx-get-balance and other
+        # intrinsic functions will throw as "not used" because they are not defined in the file
+        if run_number == 2:
+            if node.grammar_name == "public_function" or node.grammar_name == "read_only_function":
+                descendants = NodeIterator(node.parent)
+                while True:
+                    n = descendants.next()
+                    if n is None:
+                        break
+                    if n.grammar_name == "contract_function_call":
+                        for saved in self.read_only_names:
+                            if saved.child(2).child(1).text == n.child(1).text:
+                                self.read_only_names.remove(saved)
+
+            if node.grammar_name == "fold" or node.grammar_name == "map" or node.grammar_name == "filter":
+                for saved in self.read_only_names:
+                    if saved.child(2).child(1).text == node.parent.parent.child(2).text:
+                        self.read_only_names.remove(saved)
+
+        if run_number == 3:
+            for n in self.read_only_names:
+                pretty_print_warn(
+                    self,
+                    n,
+                    n,
+                    self.MSG,
+                    None
+                )
+            self.read_only_names = []

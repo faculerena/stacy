@@ -6,6 +6,7 @@ from visitor import Visitor
 
 COLORS = False
 
+
 class TerminalColors:
     HEADER = '\033[95m'
     OKBLUE = '\033[94m'

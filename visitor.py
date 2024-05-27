@@ -2,6 +2,7 @@ import tree_sitter_clarity
 from tree_sitter import Language, TreeCursor, Parser, Tree, Node
 
 CLARITY = Language(tree_sitter_clarity.language())
+DEBUG = 0
 
 
 class Visitor:
@@ -13,7 +14,7 @@ class Visitor:
     def add_source(self, source: str):
         self.source = source
 
-    def visit_node(self, node: Node):
+    def visit_node(self, node: Node, i: int):
         pass
 
 
@@ -61,6 +62,7 @@ class LinterRunner:
     root_node: Node
     iterator: NodeIterator
     lints: []  # lo que vaya acá adentro REQUIERE tener el metodo visit_node (at least)
+    round_number: int
 
     def __init__(self, source: str):
         self.source = source
@@ -69,10 +71,11 @@ class LinterRunner:
         self.root_node = self.tree.root_node
         self.iterator = NodeIterator(self.root_node)
         self.lints = []
+        self.round_number = 0
 
     def run_lints(self, node: Node):
         for lint in self.lints:
-            lint.visit_node(node)
+            lint.visit_node(node, self.round_number)
 
     def add_lint(self, lint):
         self.lints.append(lint)
@@ -83,18 +86,21 @@ class LinterRunner:
             lint.add_source(self.source)
         self.lints.extend(lints)
 
+    def reset_cursor(self):
+        self.iterator = NodeIterator(self.root_node)
+
     def run(self):
+        self.round_number = self.round_number + 1
         while True:
             v = self.iterator.next()
             if v is None:
                 break
             self.run_lints(v)
 
-
-"""
-            l = len(v.grammar_name)
-            spaces = " " * (20 - l)
-            node_depth = runner.iterator.cursor.depth
-            dep = ("-" * node_depth) + ">"
-            print(node_depth, dep, v.grammar_name, spaces, v.text)
-"""
+            if DEBUG:
+                l = len(v.grammar_name)
+                spaces = " " * (20 - l)
+                node_depth = self.iterator.cursor.depth
+                dep = ("-" * node_depth) + ">"
+                print(node_depth, dep, v.grammar_name, spaces, v.text)
+        self.reset_cursor()

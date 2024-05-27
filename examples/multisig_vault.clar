@@ -57,3 +57,6 @@
 (define-public (deposit (amount uint))
 	(stx-transfer? amount tx-sender (as-contract tx-sender))
 )
+
+
+(fold tally tx-sender 2)
