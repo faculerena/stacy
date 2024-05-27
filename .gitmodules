@@ -1,0 +1,3 @@
+[submodule "tree-sitter-clarity"]
+	path = tree-sitter-clarity
+	url = https://github.com/xlittlerag/tree-sitter-clarity
