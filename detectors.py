@@ -142,14 +142,15 @@ class ReadOnlyNotUsed(Visitor):
         self.read_only_names: [Node] = []
 
     def visit_node(self, node: Node, run_number: int):
-        if run_number == 1 and node.grammar_name == "private_function":
+        #if run_number == 1 and node.grammar_name == "define-private":
+        if run_number == 1 and node.grammar_name == "define-private":
             self.read_only_names.append(node)
             return
 
         # this can be improved with a better grammar (if not, stx-get-balance and other
         # intrinsic functions will throw as "not used" because they are not defined in the file
         if run_number == 2:
-            if node.grammar_name == "public_function" or node.grammar_name == "read_only_function":
+            if node.grammar_name == "define-public" or node.grammar_name == "define-read-only":
                 descendants = NodeIterator(node.parent)
                 while True:
                     n = descendants.next()
