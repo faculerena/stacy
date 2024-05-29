@@ -5,46 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/AssertBlockHeight.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/CallInsideAsContract.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/DivideBeforeMultiply.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/ReadOnlyNotUsed.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/TxSender.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/UnwrapPanic.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/detectors/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/print_message.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/stacks_analyzer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stacks-analyzer/visitor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/AssertBlockHeight.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/AssertBlockHeight.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/CallInsideAsContract.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/CallInsideAsContract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/DivideBeforeMultiply.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/DivideBeforeMultiply.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/ReadOnlyNotUsed.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/ReadOnlyNotUsed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/TxSender.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/TxSender.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/detectors/UnwrapPanic.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/detectors/UnwrapPanic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/example.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/example.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/multisig_vault.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/multisig_vault.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/new.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/new.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/new_example.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/new_example.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/sip009-nft.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/sip009-nft.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/sip010-ft.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/sip010-ft.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/stackings-and-rewards.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/stackings-and-rewards.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/timelocked-wallet.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/timelocked-wallet.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/tiny-market.clar" beforeDir="false" afterPath="$PROJECT_DIR$/stacks-analyzer/examples/tiny-market.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/print_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/print_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stacks_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/stacks_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree-sitter-clarity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/visitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/stacks_analyzer/visitor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +115,7 @@
       <workItem from="1716582620110" duration="743000" />
       <workItem from="1716815972893" duration="9963000" />
       <workItem from="1716901063820" duration="5762000" />
-      <workItem from="1716985936063" duration="9521000" />
+      <workItem from="1716985936063" duration="9905000" />
     </task>
     <servers />
   </component>

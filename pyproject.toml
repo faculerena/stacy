@@ -22,8 +22,6 @@ license.text = "MIT"
 readme = "README.md"
 dependencies = [
     "tree-sitter~=0.21",
-    { path = "./stacks_analyzer/tree-sitterclarity" }
-
 ]
 
 [project.urls]
