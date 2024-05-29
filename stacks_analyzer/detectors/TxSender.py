@@ -27,4 +27,5 @@ class TxSenderDetector(Visitor):
                         self.MSG,
                         None
                     )
+                    break
 

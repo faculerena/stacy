@@ -7,11 +7,12 @@ from ..visitor import Visitor, NodeIterator
 
 class CallInsideAsContract(Visitor):
     MSG = "Use of call-contract? inside an as-contract context."
-
+    checked: []
     def __init__(self):
         super().__init__()
         self.call = False
         self.principal_literal = False
+        self.checked = []
 
     def visit_node(self, node: Node, i):
         if i > 1:
@@ -36,4 +37,5 @@ class CallInsideAsContract(Visitor):
                     )
                     self.call = False
                     self.principal_literal = False
+                    break
 

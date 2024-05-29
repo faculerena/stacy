@@ -31,6 +31,7 @@ class ReadOnlyNotUsed(Visitor):
                         for saved in self.read_only_names:
                             if saved.child(2).child(1).text == n.child(1).text:
                                 self.read_only_names.remove(saved)
+                                break
 
             if node.grammar_name == "fold" or node.grammar_name == "map" or node.grammar_name == "filter":
                 for saved in self.read_only_names:

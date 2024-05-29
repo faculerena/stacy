@@ -90,7 +90,8 @@ class LinterRunner:
         self.iterator = NodeIterator(self.root_node)
 
     def run(self):
-        for _ in range(__TIMES__):
+        for i in range(__TIMES__):
+            print("EEEEEEEEEEEEEEEEE,{i}")
             self.round_number = self.round_number + 1
             while True:
                 v = self.iterator.next()

@@ -28,3 +28,4 @@ class AssertBlockHeightDetector(Visitor):
                         self.MSG,
                         None
                     )
+                    break
