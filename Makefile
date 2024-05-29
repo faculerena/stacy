@@ -1,32 +1,40 @@
-# Makefile for setting up a Python 3 virtual environment and installing packages
-
-# Paths to install (replace with actual paths)
-PATH1 = stacks_analyzer/tree-sitter-clarity
-PATH2 = stacks_analyzer
+PATH1 = ./stacks_analyzer/tree-sitter-clarity
+PATH2 = .
 
 .PHONY: venv fish bash ps1 csh install
+
+default: bash
+
+# ANSI escape codes for colors
+RED = \033[0;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+NC = \033[0m
+
+default: bash
 
 venv:
 	python3 -m venv venv
 
 install: venv
-	@echo "Installing tree-sitter grammar for Clarity"
+	@echo -e "${GREEN}======== Installing tree-sitter grammar for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH1)
-	@echo "Installing Stacy for Clarity"
+	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH2)
 
 fish: venv
-	@echo "Using Fish shell"
+	@echo -e "${BLUE}======== Using Fish shell ========${NC}"
 	. venv/bin/activate.fish && make install
 
 bash: venv
-	@echo "Using Bash shell"
+	@echo -e "${BLUE}======== Using Bash shell ========${NC}"
 	. venv/bin/activate && make install
 
 ps1: venv
-	@echo "Using PowerShell"
+	@echo -e "${BLUE}======== Using PowerShell ========${NC}"
 	venv\Scripts\Activate.ps1; make install
 
 csh: venv
-	@echo "Using C shell"
+	@echo -e "${BLUE}======== Using C shell ========${NC}"
 	. venv/bin/activate.csh && make install

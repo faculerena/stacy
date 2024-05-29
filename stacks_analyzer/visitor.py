@@ -91,7 +91,6 @@ class LinterRunner:
 
     def run(self):
         for i in range(__TIMES__):
-            print("EEEEEEEEEEEEEEEEE,{i}")
             self.round_number = self.round_number + 1
             while True:
                 v = self.iterator.next()
