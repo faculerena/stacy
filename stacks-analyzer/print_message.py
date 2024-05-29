@@ -3,7 +3,7 @@ import sys
 
 from tree_sitter import Node
 
-from visitor import Visitor
+from .visitor import Visitor
 
 
 class TerminalColors:

@@ -1,12 +1,11 @@
-
 from tree_sitter import Node
 
-from print_message import pretty_print_warn
-from visitor import Visitor, NodeIterator
+from ..print_message import pretty_print_warn
+from ..visitor import Visitor, NodeIterator
 
 
-class AssertBlockHeightDetector(Visitor):
-    MSG = "Use of block-height inside a assert"
+class TxSenderDetector(Visitor):
+    MSG = "Use of tx-sender inside an assert"
 
     def __init__(self):
         super().__init__()
@@ -20,7 +19,7 @@ class AssertBlockHeightDetector(Visitor):
                 n = descendants.next()
                 if n is None:
                     break
-                if str(n.text, "utf8") == "block-height" and n.grammar_name == "global":
+                if str(n.text, "utf8") == "tx-sender" and n.grammar_name == "global":
                     pretty_print_warn(
                         self,
                         node.parent,
@@ -28,3 +27,4 @@ class AssertBlockHeightDetector(Visitor):
                         self.MSG,
                         None
                     )
+

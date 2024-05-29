@@ -1,15 +1,16 @@
 import os
-import sys
 import argparse
+import sys
 
-from detectors.TxSender import TxSenderDetector
-from detectors.AssertBlockHeight import AssertBlockHeightDetector
-from detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
-from detectors.ReadOnlyNotUsed import ReadOnlyNotUsed
-from detectors.UnwrapPanic import UnwrapPanicDetector
-from detectors.CallInsideAsContract import CallInsideAsContract
+from .detectors.TxSender import TxSenderDetector
+from .detectors.AssertBlockHeight import AssertBlockHeightDetector
+from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
+from .detectors.ReadOnlyNotUsed import ReadOnlyNotUsed
+from .detectors.UnwrapPanic import UnwrapPanicDetector
+from .detectors.CallInsideAsContract import CallInsideAsContract
+from .print_message import TerminalColors
 
-from visitor import LinterRunner, Visitor
+from .visitor import LinterRunner, Visitor
 
 
 def main():
@@ -33,7 +34,11 @@ def main():
 
 
 def lint_file(path):
-    print(f"====== Linting {path}... ======")
+    tty = sys.stdout.isatty()
+    if tty:
+        print(f"{TerminalColors.HEADER}====== Linting {path}... ======{TerminalColors.ENDC}")
+    else:
+        print(f"====== Linting {path}... ======")
 
     with open(path, 'r') as file:
         source = file.read()

@@ -1,7 +1,7 @@
 from tree_sitter import Node
 
-from print_message import pretty_print_warn
-from visitor import Visitor, NodeIterator
+from ..print_message import pretty_print_warn
+from ..visitor import Visitor, NodeIterator
 
 
 class DivideBeforeMultiplyDetector(Visitor):
