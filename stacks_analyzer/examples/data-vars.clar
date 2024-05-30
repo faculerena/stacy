@@ -1,0 +1,10 @@
+(define-data-var contract-owner tx-sender)
+(define-data-var aaa tx-sender)
+(define-data-var bbb tx-sender)
+(define-data-var ccc tx-sender)
+(define-data-var ddd tx-sender)
+(define-data-var eee tx-sender)
+
+(var-set contract-owner tx-sender)
+(var-set bbb tx-sender)
+(var-set eee tx-sender)

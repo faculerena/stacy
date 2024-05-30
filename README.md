@@ -1,19 +1,13 @@
 # Stacks Static Analyzer
 
-## Install dependencies
+## Install
 
 ```shell
-./install.sh
-```
-
-or 
-
-```shell
-pip install tree-sitter-clarity
+make
 ```
 
 ## Run
 
 ```shell
-python3 stacks_analyzer.py <path-to-file>
+stacy-analyzer <path/to/clar>
 ```

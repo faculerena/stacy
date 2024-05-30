@@ -4,7 +4,7 @@
 
 (try! (as-contract (contract-call? argumento claim)))
 
-(unwrap-panic (ok (1)))
+(unwrap-panic (ok (1))
 
 (asserts! (> block-height constant) err-some-error)
 

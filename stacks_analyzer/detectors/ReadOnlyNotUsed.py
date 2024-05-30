@@ -21,7 +21,7 @@ class ReadOnlyNotUsed(Visitor):
         # this can be improved with a better grammar (if not, stx-get-balance and other
         # intrinsic functions will throw as "not used" because they are not defined in the file
         if run_number == 2:
-            if node.grammar_name == "public_function" or node.grammar_name == "read_only_function":
+            if node.grammar_name == "define-public" or node.grammar_name == "define-read-only":
                 descendants = NodeIterator(node.parent)
                 while True:
                     n = descendants.next()
