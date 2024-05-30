@@ -38,7 +38,3 @@
 		(ok token-id)
 	)
 )
-
-(define-private (mytest)
-	(ok (1))
-)
