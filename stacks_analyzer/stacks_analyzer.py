@@ -3,11 +3,11 @@ import argparse
 import sys
 
 from stacks_analyzer.detectors.VarCouldBeConstant import VarCouldBeConstant
-from .detectors.TxSender import TxSenderDetector
+from .detectors.TxSenderInAssert import TxSenderDetector
 from .detectors.AssertBlockHeight import AssertBlockHeightDetector
 from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
 from .detectors.ReadOnlyNotUsed import ReadOnlyNotUsed
-from .detectors.UnwrapPanic import UnwrapPanicDetector
+from .detectors.UnwrapPanicUsage import UnwrapPanicDetector
 from .detectors.CallInsideAsContract import CallInsideAsContract
 from .print_message import TerminalColors
 
@@ -36,12 +36,12 @@ def main():
 
     if args.command == "detectors":
         detectors = [
-            "AssertBlockHeightDetector",
+            "AssertBlockHeight",
             "CallInsideAsContract",
-            "DivideBeforeMultiplyDetector",
+            "DivideBeforeMultiply",
             "ReadOnlyNotUsed",
-            "TxSenderDetector",
-            "UnwrapPanicDetector",
+            "TxSenderInAssert",
+            "UnwrapPanicUsage",
             "VarCouldBeConstant"
         ]
 
