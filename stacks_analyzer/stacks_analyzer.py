@@ -2,6 +2,7 @@ import os
 import argparse
 import sys
 
+from stacks_analyzer.detectors.VarCouldBeConstant import VarCouldBeConstant
 from .detectors.TxSender import TxSenderDetector
 from .detectors.AssertBlockHeight import AssertBlockHeightDetector
 from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
@@ -51,7 +52,8 @@ def lint_file(path):
         UnwrapPanicDetector(),
         AssertBlockHeightDetector(),
         CallInsideAsContract(),
-        ReadOnlyNotUsed()
+        ReadOnlyNotUsed(),
+        VarCouldBeConstant()
     ]
 
     runner.add_lints(lints)
