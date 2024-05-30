@@ -2,6 +2,7 @@ import os
 import argparse
 import sys
 
+
 from .detectors.TxSender import TxSenderDetector
 from .detectors.AssertBlockHeight import AssertBlockHeightDetector
 from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
