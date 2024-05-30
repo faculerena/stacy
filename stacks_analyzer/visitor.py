@@ -97,5 +97,4 @@ class LinterRunner:
                 if v is None:
                     break
                 self.run_lints(v)
-
             self.reset_cursor()

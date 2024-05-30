@@ -13,13 +13,13 @@ class DivideBeforeMultiplyDetector(Visitor):
     def visit_node(self, node: Node, i):
         if i > 1:
             return
-        if node.grammar_name == "arithmetic_function" and str(node.text, "utf8") == "*":
+        if node.grammar_name == "native_identifier" and str(node.text, "utf8") == "*":
             descendants = NodeIterator(node.parent)
             while True:
                 n = descendants.next()
                 if n is None:
                     break
-                if str(n.text, "utf8") == "/" and n.grammar_name == "arithmetic_function":
+                if str(n.text, "utf8") == "/" and n.grammar_name == "native_identifier":
                     pretty_print_warn(
                         self,
                         node.parent,

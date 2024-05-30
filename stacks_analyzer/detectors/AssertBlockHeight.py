@@ -1,4 +1,3 @@
-
 from tree_sitter import Node
 
 from ..print_message import pretty_print_warn

@@ -13,7 +13,7 @@ class UnwrapPanicDetector(Visitor):
     def visit_node(self, node: Node, i):
         if i > 1:
             return
-        if str(node.text, "utf8") == "unwrap-panic":
+        if node.grammar_name == "unwrap-panic":
             pretty_print_warn(
                 self,
                 node.parent,
@@ -21,3 +21,4 @@ class UnwrapPanicDetector(Visitor):
                 self.MSG,
                 None
             )
+
