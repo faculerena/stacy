@@ -1,10 +1,9 @@
 import math
+import sys
 
 from tree_sitter import Node
 
-from visitor import Visitor
-
-COLORS = False
+from .visitor import Visitor
 
 
 class TerminalColors:
@@ -29,10 +28,20 @@ def pretty_print_warn(visitor: Visitor, parent: Node, specific_node: Node, msg: 
     arrows = "^" * (specific_node.end_point.column - specific_node.start_point.column)
     spaces = " " * ((specific_node.start_point.column * start_tabs) + 1)
 
-    print(f"Warning: {msg}")
+    tty = sys.stdout.isatty()
+
+    if tty:
+        print(f"{TerminalColors.OKCYAN}Warning:{TerminalColors.ENDC} {msg}")
+    else:
+        print(f"Warning: {msg}")
     print(f" {num_size_spaces}|")
     print(f" {line_number} | {contract_code}")
-    print(f" {num_size_spaces}|{spaces}{arrows}")
+    if tty:
+        print(f" {num_size_spaces}|{spaces}{TerminalColors.OKCYAN}{arrows}{TerminalColors.ENDC}")
+    else:
+        print(f" {num_size_spaces}|{spaces}{arrows}")
+
     if help_msg is not None:
         print(f" {num_size_spaces}|{spaces}{help_msg}")
     print()
+

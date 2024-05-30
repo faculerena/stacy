@@ -1,8 +1,8 @@
 import tree_sitter_clarity
 from tree_sitter import Language, TreeCursor, Parser, Tree, Node
 
-CLARITY = Language(tree_sitter_clarity.language())
-DEBUG = 0
+__CLARITY__ = Language(tree_sitter_clarity.language())
+__TIMES__ = 3
 
 
 class Visitor:
@@ -66,7 +66,7 @@ class LinterRunner:
 
     def __init__(self, source: str):
         self.source = source
-        parser = Parser(CLARITY)
+        parser = Parser(__CLARITY__)
         self.tree = parser.parse(bytes(self.source, "utf8"))
         self.root_node = self.tree.root_node
         self.iterator = NodeIterator(self.root_node)
@@ -90,17 +90,12 @@ class LinterRunner:
         self.iterator = NodeIterator(self.root_node)
 
     def run(self):
-        self.round_number = self.round_number + 1
-        while True:
-            v = self.iterator.next()
-            if v is None:
-                break
-            self.run_lints(v)
+        for i in range(__TIMES__):
+            self.round_number = self.round_number + 1
+            while True:
+                v = self.iterator.next()
+                if v is None:
+                    break
+                self.run_lints(v)
 
-            if DEBUG:
-                l = len(v.grammar_name)
-                spaces = " " * (20 - l)
-                node_depth = self.iterator.cursor.depth
-                dep = ("-" * node_depth) + ">"
-                print(node_depth, dep, v.grammar_name, spaces, v.text)
-        self.reset_cursor()
+            self.reset_cursor()
