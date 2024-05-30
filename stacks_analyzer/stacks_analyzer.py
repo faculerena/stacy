@@ -3,11 +3,11 @@ import argparse
 import sys
 
 from stacks_analyzer.detectors.VarCouldBeConstant import VarCouldBeConstant
-from .detectors.TxSender import TxSenderDetector
+from .detectors.TxSenderInAssert import TxSenderDetector
 from .detectors.AssertBlockHeight import AssertBlockHeightDetector
 from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
 from .detectors.ReadOnlyNotUsed import ReadOnlyNotUsed
-from .detectors.UnwrapPanic import UnwrapPanicDetector
+from .detectors.UnwrapPanicUsage import UnwrapPanicDetector
 from .detectors.CallInsideAsContract import CallInsideAsContract
 from .print_message import TerminalColors
 
@@ -36,34 +36,39 @@ def main():
 
     if args.command == "detectors":
         detectors = [
-            "AssertBlockHeightDetector",
+            "AssertBlockHeight",
             "CallInsideAsContract",
-            "DivideBeforeMultiplyDetector",
+            "DivideBeforeMultiply",
             "ReadOnlyNotUsed",
-            "TxSenderDetector",
-            "UnwrapPanicDetector",
+            "TxSenderInAssert",
+            "UnwrapPanicUsage",
             "VarCouldBeConstant"
         ]
-        
+
         max_length = max(len(st) for st in detectors)
         s = max_length // 2 - 4
+
         if sys.stdout.isatty():
-            print(f"{TerminalColors.OKCYAN}┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐{TerminalColors.ENDC}")
+            color = TerminalColors.OKCYAN
+            end = TerminalColors.ENDC
+        else:
+            color = ""
+            end = ""
+
+        if sys.stdout.isatty():
+            print(f" {color}┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐{end}")
             for file in detectors:
                 print(
-                    f"{TerminalColors.OKCYAN}|{TerminalColors.ENDC} {file.ljust(max_length + 1)}{TerminalColors.OKCYAN}|{TerminalColors.ENDC}")
-            print(f"{TerminalColors.OKCYAN}└" + "─" * (max_length + 2) + f"┘{TerminalColors.ENDC}")
-        else:
-            print(f"┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐")
-            for file in detectors:
-                print(f"| {file.ljust(max_length + 1)}|")
-            print(f"└" + "─" * (max_length + 2) + f"┘")
+                    f" {color}|{end} {file.ljust(max_length + 1)}{color}|{end}")
+            print(f" {color}└" + "─" * (max_length + 2) + f"┘{end}")
+
 
 
 def lint_file(path):
     tty = sys.stdout.isatty()
     if tty:
         print(f"{TerminalColors.HEADER}====== Linting {path}... ======{TerminalColors.ENDC}")
+        
     else:
         print(f"====== Linting {path}... ======")
 
@@ -85,6 +90,35 @@ def lint_file(path):
     runner.add_lints(lints)
     runner.run()
 
+
+def generate_base_for_tests(path):
+    tty = sys.stdout.isatty()
+    contract_name = ''.join(['base_tests/', os.path.basename(path[:-5]),'.txt'])
+
+    sys.stdout = open(contract_name, "w", encoding='utf8')
+    if tty:
+        print(f"====== Linting {path}... ======")
+            
+    else:
+        print(f"====== Linting {path}... ======")
+
+    with open(path, 'r') as file:
+        source = file.read()
+
+    runner: LinterRunner = LinterRunner(source)
+
+    lints: [Visitor] = [
+        TxSenderDetector(),
+        DivideBeforeMultiplyDetector(),
+        UnwrapPanicDetector(),
+        AssertBlockHeightDetector(),
+        CallInsideAsContract(),
+        ReadOnlyNotUsed(),
+        VarCouldBeConstant()
+    ]
+
+    runner.add_lints(lints)
+    runner.run()
 
 if __name__ == '__main__':
     main()
