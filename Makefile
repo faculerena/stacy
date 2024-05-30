@@ -17,7 +17,7 @@ venv:
 
 install: venv
 	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
-	git submodule update --init --recursive
+	git submodule update --recursive
 	@echo -e "${GREEN}======== Installing tree-sitter grammar for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH1)
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
