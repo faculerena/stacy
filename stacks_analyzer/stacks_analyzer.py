@@ -44,20 +44,24 @@ def main():
             "UnwrapPanicDetector",
             "VarCouldBeConstant"
         ]
-        
+
         max_length = max(len(st) for st in detectors)
         s = max_length // 2 - 4
+
         if sys.stdout.isatty():
-            print(f"{TerminalColors.OKCYAN}┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐{TerminalColors.ENDC}")
+            color = TerminalColors.OKCYAN
+            end = TerminalColors.ENDC
+        else:
+            color = ""
+            end = ""
+
+        if sys.stdout.isatty():
+            print(f" {color}┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐{end}")
             for file in detectors:
                 print(
-                    f"{TerminalColors.OKCYAN}|{TerminalColors.ENDC} {file.ljust(max_length + 1)}{TerminalColors.OKCYAN}|{TerminalColors.ENDC}")
-            print(f"{TerminalColors.OKCYAN}└" + "─" * (max_length + 2) + f"┘{TerminalColors.ENDC}")
-        else:
-            print(f"┌" + "─" * (s - 1) + " Detectors " + "─" * s + f"┐")
-            for file in detectors:
-                print(f"| {file.ljust(max_length + 1)}|")
-            print(f"└" + "─" * (max_length + 2) + f"┘")
+                    f" {color}|{end} {file.ljust(max_length + 1)}{color}|{end}")
+            print(f" {color}└" + "─" * (max_length + 2) + f"┘{end}")
+
 
 
 def lint_file(path):
