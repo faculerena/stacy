@@ -1,4 +1,4 @@
-PATH1 = ./stacks_analyzer/tree-sitter-clarity
+PATH1 = stacks_analyzer/tree-sitter-clarity
 PATH2 = .
 
 .PHONY: venv fish bash ps1 csh install
@@ -22,14 +22,13 @@ action: venv
 	cd $(PATH1)
 	npm install tree-sitter-cli
 	@echo -e "${GREEN}======== Installing tree-sitter grammar for Clarity ========${NC}"
-	npx tree-sitter generate
+	cd $(PATH1) && npx tree-sitter generate
+	rm -fr node_modules
 	./venv/bin/pip install .
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
-	cd ..
-	cd ..
 	./venv/bin/pip install $(PATH2)
 	@echo -e "${GREEN}======== Running Stacy for Clarity ========${NC}"
-	./venv/bin/stacy-analyzer lint $INPUT_TARGET
+	./venv/bin/stacy-analyzer lint $(INPUT_TARGET)
 
 install: venv
 	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
