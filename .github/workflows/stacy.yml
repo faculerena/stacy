@@ -1,0 +1,21 @@
+name: Build and Run Stacy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Stacy Analyzer
+        uses: ./
+        with:
+          target: 'tests/assert_block_height/vulnerable-example/assert_block_height.clar'
+
