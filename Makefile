@@ -24,7 +24,7 @@ action: venv
 	@echo -e "${GREEN}======== Installing tree-sitter grammar for Clarity ========${NC}"
 	cd $(PATH1) && npx tree-sitter generate
 	rm -fr node_modules
-	./venv/bin/pip install .
+	./venv/bin/pip install $(PATH1)
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH2)
 	@echo -e "${GREEN}======== Running Stacy for Clarity ========${NC}"
