@@ -20,7 +20,7 @@ jobs:
       - name: Run Stacy Analyzer
         uses: ./
         with:
-          target: 'tests/'
+          target: 'tests/tx_sender'
 
       - uses: mshick/add-pr-comment@v2.8.2
         with:
