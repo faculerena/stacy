@@ -21,17 +21,11 @@ class PrivateFunctionNotUsed(Visitor):
         # this can be improved with a better grammar (if not, stx-get-balance and other
         # intrinsic functions will throw as "not used" because they are not defined in the file
         if run_number == 2:
-            if node.grammar_name == "define-public" or node.grammar_name == "define-read-only":
-                descendants = NodeIterator(node.parent)
-                while True:
-                    n = descendants.next()
-                    if n is None:
+            if node.grammar_name == "contract_function_call":
+                for saved in self.read_only_names:
+                    if saved.child(2).child(1).text == node.child(1).text:
+                        self.read_only_names.remove(saved)
                         break
-                    if n.grammar_name == "contract_function_call":
-                        for saved in self.read_only_names:
-                            if saved.child(2).child(1).text == n.child(1).text:
-                                self.read_only_names.remove(saved)
-                                break
 
             if node.grammar_name == "fold" or node.grammar_name == "map" or node.grammar_name == "filter":
                 for saved in self.read_only_names:
