@@ -39,7 +39,7 @@ def main():
             "AssertBlockHeight",
             "CallInsideAsContract",
             "DivideBeforeMultiply",
-            "PrivateFunctionOnlyNotUsed",
+            "PrivateFunctionNotUsed",
             "TxSenderInAssert",
             "UnwrapPanicUsage",
             "VarCouldBeConstant"
