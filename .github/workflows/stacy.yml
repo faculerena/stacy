@@ -19,3 +19,6 @@ jobs:
         with:
           target: 'tests/assert_block_height/vulnerable-example/assert_block_height.clar'
 
+      - uses: mshick/add-pr-comment@v2.8.2
+        with:
+          message-path:  ${{ github.workspace }}/report.out
