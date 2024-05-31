@@ -5,7 +5,7 @@ from ..print_message import pretty_print_warn
 from ..visitor import Visitor, NodeIterator
 
 
-class ReadOnlyNotUsed(Visitor):
+class PrivateFunctionNotUsed(Visitor):
     MSG = "This private function is not used."
     read_only_names: [Node] = []
 

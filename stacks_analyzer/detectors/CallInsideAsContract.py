@@ -11,7 +11,7 @@ class CallInsideAsContract(Visitor):
     def __init__(self):
         super().__init__()
         self.call = False
-        self.principal_literal = False
+        self.lit = False
         self.checked = []
 
     def visit_node(self, node: Node, i):
@@ -26,13 +26,14 @@ class CallInsideAsContract(Visitor):
                 if str(n.text, "utf8") == "contract-call?":
                     self.call = True
                 if n.grammar_name == "contract_principal_lit":
-                    pretty_print_warn(
-                        self,
-                        node.parent,
-                        node,
-                        self.MSG,
-                        None
-                    )
-                    self.call = False
-                    self.principal_literal = False
-                    break
+                    self.lit = True
+            if self.call and not self.lit:
+                pretty_print_warn(
+                    self,
+                    node.parent,
+                    node,
+                    self.MSG,
+                    None
+                )
+                self.call = False
+                self.lit = False

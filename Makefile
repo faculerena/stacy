@@ -15,6 +15,7 @@ default: bash
 venv:
 	python3 -m venv venv
 
+
 install: venv
 	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
 	git submodule update --recursive
@@ -22,6 +23,10 @@ install: venv
 	./venv/bin/pip install $(PATH1)
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH2)
+
+test: venv install
+	@echo -e  "${GREEN}======== Testing detectors ========${NC}"
+	./tests.sh
 
 fish: venv
 	@echo -e "${BLUE}======== Using Fish shell ========${NC}"

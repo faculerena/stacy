@@ -33,4 +33,4 @@ class VarCouldBeConstant(Visitor):
                     self.MSG,
                     None
                 )
-                self.data_vars = []
+            self.data_vars = []

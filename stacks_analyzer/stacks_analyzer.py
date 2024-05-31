@@ -6,7 +6,7 @@ from stacks_analyzer.detectors.VarCouldBeConstant import VarCouldBeConstant
 from .detectors.TxSenderInAssert import TxSenderDetector
 from .detectors.AssertBlockHeight import AssertBlockHeightDetector
 from .detectors.DivideBeforeMultiply import DivideBeforeMultiplyDetector
-from .detectors.ReadOnlyNotUsed import ReadOnlyNotUsed
+from .detectors.PrivateFunctionNotUsed import PrivateFunctionNotUsed
 from .detectors.UnwrapPanicUsage import UnwrapPanicDetector
 from .detectors.CallInsideAsContract import CallInsideAsContract
 from .print_message import TerminalColors
@@ -39,7 +39,7 @@ def main():
             "AssertBlockHeight",
             "CallInsideAsContract",
             "DivideBeforeMultiply",
-            "ReadOnlyNotUsed",
+            "PrivateFunctionOnlyNotUsed",
             "TxSenderInAssert",
             "UnwrapPanicUsage",
             "VarCouldBeConstant"
@@ -83,7 +83,7 @@ def lint_file(path):
         UnwrapPanicDetector(),
         AssertBlockHeightDetector(),
         CallInsideAsContract(),
-        ReadOnlyNotUsed(),
+        PrivateFunctionNotUsed(),
         VarCouldBeConstant()
     ]
 
