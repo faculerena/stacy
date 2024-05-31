@@ -23,4 +23,4 @@ RUN npx tree-sitter generate
 WORKDIR /opt/stacy
 
 ENV INPUT_TARGET="."
-ENTRYPOINT ["sh", "-c", "git config --global --add safe.directory /github/workspace && git submodule update --init --recursive && make"]
+ENTRYPOINT ["sh", "-c", "git config --global --add safe.directory /github/workspace && git submodule update --init --recursive && make action"]
