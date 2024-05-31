@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="Merge python branch" />
+    <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="Merge python branch">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/stacy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/stacy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/action.yml" beforeDir="false" afterPath="$PROJECT_DIR$/action.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,7 +141,7 @@
       <workItem from="1716985936063" duration="4796000" />
       <workItem from="1717072589929" duration="10265000" />
       <workItem from="1717159248920" duration="5889000" />
-      <workItem from="1717166113566" duration="4610000" />
+      <workItem from="1717166113566" duration="5030000" />
     </task>
     <servers />
   </component>
