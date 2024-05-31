@@ -25,6 +25,8 @@ action: venv
 	npx tree-sitter generate
 	./venv/bin/pip install .
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
+	cd ..
+	cd ..
 	./venv/bin/pip install $(PATH2)
 	@echo -e "${GREEN}======== Running Stacy for Clarity ========${NC}"
 	./venv/bin/stacy-analyzer lint $INPUT_TARGET
