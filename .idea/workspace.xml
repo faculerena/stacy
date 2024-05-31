@@ -4,24 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="">
+    <list default="true" id="e85f5ba6-df5a-49c6-8a12-f291b4672bab" name="Changes" comment="Merge python branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/assert_block_height" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/call_inside_as_contract" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/divide_before_multiply" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/read_only_not_used" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/tx_sender" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_tests/unwrap_panic" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stacks_analyzer/detectors/CallInsideAsContract.py" beforeDir="false" afterPath="$PROJECT_DIR$/stacks_analyzer/detectors/CallInsideAsContract.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stacks_analyzer/detectors/ReadOnlyNotUsed.py" beforeDir="false" afterPath="$PROJECT_DIR$/stacks_analyzer/detectors/PrivateFunctionNotUsed.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stacks_analyzer/detectors/VarCouldBeConstant.py" beforeDir="false" afterPath="$PROJECT_DIR$/stacks_analyzer/detectors/VarCouldBeConstant.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stacks_analyzer/stacks_analyzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/stacks_analyzer/stacks_analyzer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/call_inside_as_contract/remediated-example/call_inside_as_contract.clar" beforeDir="false" afterPath="$PROJECT_DIR$/tests/call_inside_as_contract/remediated-example/call_inside_as_contract.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/call_inside_as_contract/vulnerable-example/call_inside_as_contract.clar" beforeDir="false" afterPath="$PROJECT_DIR$/tests/call_inside_as_contract/vulnerable-example/call_inside_as_contract.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/read_only_not_used/remediated-example/read_only_not_used.clar" beforeDir="false" afterPath="$PROJECT_DIR$/tests/read_only_not_used/remediated-example/read_only_not_used.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/read_only_not_used/vulnerable-example/read_only_not_used.clar" beforeDir="false" afterPath="$PROJECT_DIR$/tests/read_only_not_used/vulnerable-example/read_only_not_used.clar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/tx_sender/remediated-example/tx_sender.clar" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tx_sender/remediated-example/tx_sender.clar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +50,7 @@
     &quot;Python.stacks_analyzer.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;tests&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/flerena/coinfabrik/static-analyzer-clarity/python_try/tests/var_could_be_constant&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.appearance&quot;
   }
@@ -116,7 +100,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Makefile Target.venv" />
         <item itemvalue="Python.stacks_analyzer" />
       </list>
     </recent_temporary>
@@ -165,7 +148,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Merge python branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge python branch" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_try$stacks_analyzer.coverage" NAME="stacks_analyzer Coverage Results" MODIFIED="1716826923320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
