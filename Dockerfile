@@ -20,8 +20,7 @@ RUN git clone --recurse-submodules https://github.com/faculerena/stacy /opt/stac
 WORKDIR /opt/stacy/stacks_analyzer/tree-sitter-clarity
 RUN npm install tree-sitter-cli
 RUN npx tree-sitter generate
-RUN git config --global --add safe.directory /github/workspace
 WORKDIR /opt/stacy
 
 ENV INPUT_TARGET="."
-ENTRYPOINT ["sh", "-c", "make && ./venv/bin/stacy-analyzer lint, $INPUT_TARGET"]
+ENTRYPOINT ["sh", "-c", "git config --global --add safe.directory /github/workspace && make && ./venv/bin/stacy-analyzer lint, $INPUT_TARGET"]
