@@ -17,5 +17,5 @@ jobs:
       - name: Run Stacy Analyzer
         uses: ./
         with:
-          target: './tests/assert_block_height/vulnerable-example/assert_block_height.clar'
+          target: 'tests/assert_block_height/vulnerable-example/assert_block_height.clar'
 
