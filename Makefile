@@ -28,7 +28,10 @@ action: venv
 	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
 	./venv/bin/pip install $(PATH2)
 	@echo -e "${GREEN}======== Running Stacy for Clarity ========${NC}"
+	echo "```" >  $(GITHUB_WORKSPACE)/report.out
 	./venv/bin/stacy-analyzer lint $(INPUT_TARGET) > $(GITHUB_WORKSPACE)/report.out
+	echo "```" >  $(GITHUB_WORKSPACE)/report.out
+
 
 install: venv
 	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
