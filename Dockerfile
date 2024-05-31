@@ -23,4 +23,4 @@ RUN npx tree-sitter generate
 WORKDIR /opt/stacy
 
 ENV INPUT_TARGET="."
-ENTRYPOINT ["sh", "-c", "git config --global --add safe.directory /github/workspace && make && ./venv/bin/stacy-analyzer lint, $INPUT_TARGET"]
+ENTRYPOINT ["sh", "-c", "git config --global --add safe.directory /github/workspace && make"]

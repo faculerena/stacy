@@ -15,6 +15,19 @@ default: bash
 venv:
 	python3 -m venv venv
 
+action: venv
+	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
+	git submodule update --recursive
+	@echo -e "${GREEN}======== Installing tree-sitter ========${NC}"
+	cd $(PATH1)
+	npm install tree-sitter-cli
+	@echo -e "${GREEN}======== Installing tree-sitter grammar for Clarity ========${NC}"
+	npx tree-sitter generate
+	./venv/bin/pip install .
+	@echo -e "${GREEN}======== Installing Stacy for Clarity ========${NC}"
+	./venv/bin/pip install $(PATH2)
+	@echo -e "${GREEN}======== Running Stacy for Clarity ========${NC}"
+	./venv/bin/stacy-analyzer lint $INPUT_TARGET
 
 install: venv
 	@echo -e  "${GREEN}======== Cloning tree-sitter grammar for Clarity ========${NC}"
