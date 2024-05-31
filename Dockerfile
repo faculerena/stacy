@@ -23,4 +23,4 @@ RUN npx tree-sitter generate
 WORKDIR /opt/stacy
 
 ENV INPUT_TARGET="."
-ENTRYPOINT ["make && ./venv/bin/stacy-analyzer", "lint", "$INPUT_TARGET"]
+ENTRYPOINT ["sh", "-c", "make && ./venv/bin/stacy-analyzer lint, $INPUT_TARGET"]
