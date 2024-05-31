@@ -25,4 +25,4 @@ WORKDIR /opt/stacy
 RUN make
 RUN ls
 ENV INPUT_TARGET="."
-ENTRYPOINT ["./venv/bin/stacy-analyzer lint $INPUT_TARGET"]
+ENTRYPOINT ["./venv/bin/stacy-analyzer", "lint", "$INPUT_TARGET"]
