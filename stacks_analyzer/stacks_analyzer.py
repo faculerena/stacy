@@ -113,7 +113,7 @@ def generate_base_for_tests(path):
         UnwrapPanicDetector(),
         AssertBlockHeightDetector(),
         CallInsideAsContract(),
-        ReadOnlyNotUsed(),
+        PrivateFunctionNotUsed(),
         VarCouldBeConstant()
     ]
 
