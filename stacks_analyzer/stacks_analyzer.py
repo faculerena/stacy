@@ -39,7 +39,7 @@ def main():
             "AssertBlockHeight",
             "CallInsideAsContract",
             "DivideBeforeMultiply",
-            "PrivateFunctionOnlyNotUsed",
+            "PrivateFunctionNotUsed",
             "TxSenderInAssert",
             "UnwrapPanicUsage",
             "VarCouldBeConstant"
@@ -113,7 +113,7 @@ def generate_base_for_tests(path):
         UnwrapPanicDetector(),
         AssertBlockHeightDetector(),
         CallInsideAsContract(),
-        ReadOnlyNotUsed(),
+        PrivateFunctionNotUsed(),
         VarCouldBeConstant()
     ]
 
